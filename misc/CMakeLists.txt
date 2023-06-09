@@ -12,7 +12,7 @@ add_executable (misc "misc.cpp"
 					"memtrace.h"
 					"memtrace.cpp"
 					"min_heap.h"
-					"min_heap.cpp")
+        "array.hpp")
 
 
 

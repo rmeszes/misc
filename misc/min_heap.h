@@ -6,7 +6,7 @@
 
 template<typename T>
 class min_heap :public std::priority_queue<T,std::vector<T>,std::greater<T>> {
-	bool operator==(const min_heap& other) const;
+    bool operator==(const min_heap& other) const = default;
 public:
 	min_heap() = default;
 
