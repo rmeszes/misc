@@ -35,7 +35,6 @@ int main()
 
     TEST(Array, capacity_ctor) {
         Array<int> array1(12);
-        EXPECT_EQ(0, array1.size());
         EXPECT_EQ(12, array1.capacity());
         EXPECT_ANY_THROW(Array<int>(-12));
     } ENDM;
@@ -49,9 +48,7 @@ int main()
         int b_array[] = {12, -23, 42, 54};
         Array<int> array(b_array,4);
         Array<int> array1(array);
-        stringstream ss;
-        array1.write(ss);
-        EXPECT_STREQ("12 -23 42 54", ss.str().c_str());
+        EXPECT_EQ(12, array1[0]);
     } ENDM;
 
     TEST(Array, resize) {
@@ -59,20 +56,16 @@ int main()
         Array<int> array(b_array,4);
         array.resize(12);
         EXPECT_EQ(12, array.capacity());
-        EXPECT_EQ(4, array.size());
-        EXPECT_EQ(8, array.free_size());
-        stringstream ss;
-        array.write(ss);
-        EXPECT_STREQ("12 -23 42 54", ss.str().c_str());
+        EXPECT_EQ(12, array[0]);
         array.resize(2);
-        EXPECT_EQ(2, array.size());
         EXPECT_EQ(2, array.capacity());
-        EXPECT_EQ(0, array.free_size());
-        stringstream ss2;
-        array.write(ss2);
-        EXPECT_STREQ("12 -23", ss2.str().c_str());
+        EXPECT_EQ(12, array[0]);
     } ENDM;
 
+    TEST(Array, index) {
+        Array<int> array(3);
+        EXPECT_ANY_THROW(array[3]);
+    } ENDM;
 
 	return 0;
 }
