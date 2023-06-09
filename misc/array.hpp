@@ -67,10 +67,12 @@ public:
     }
 
     T& operator[](size_t idx) {
+        if(idx >= siz) throw std::out_of_range("Array over-indexed");
         return data[idx];
     };
 
     T operator[](size_t idx) const {
+        if(idx >= siz) throw std::out_of_range("Array over-indexed");
         return data[idx];
     }
 
