@@ -67,5 +67,14 @@ int main()
         EXPECT_ANY_THROW(array[3]);
     } ENDM;
 
+    TEST(boxSort, sort){
+        int array[] = { 4, 2, 6, 1 };
+        std::unique_ptr<int[]> sortedArray(boxSort()(array, 4));
+        stringstream ss;
+        for (size_t i = 0; i < 4; ++i) {
+            ss << sortedArray[i];
+        }
+        EXPECT_STREQ("1246", ss.str().c_str());
+    } ENDM;
 	return 0;
 }

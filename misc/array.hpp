@@ -2,7 +2,7 @@
 // Created by rmesz on 2023. 06. 09..
 //
 
-
+///This array is to test-write different (probaly sorting) algorithms
 #include <cstddef>
 #include <stdexcept>
 
@@ -58,6 +58,4 @@ public:
     }
 
     //Basics of the array END -----------------------------------------
-
-
 };
